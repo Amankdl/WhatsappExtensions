@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Demo",
+    "description": "This extension will send messages in bulk to contacts.",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icon48.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches":[
+                "https://web.whatsapp.com/"
+            ],
+             "js": ["content.js"],
+             "css": ["./style.css"]
+        }
+    ],
+    "permissions": [
+        "<all_urls>"      
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    }
+}

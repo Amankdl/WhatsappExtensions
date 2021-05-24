@@ -1,0 +1,105 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.heading{
+  display: flex;
+  margin: 13px;
+}
+
+.lower-box-span{
+  display: flex;
+    margin: 13px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.outer-box{
+  min-width: 500px;
+  width: 500px;
+  height: 500px;
+  border-style: solid;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -400px;
+    margin-top: -300px;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 5px 5px 20px #181818;
+  background-color: #E5DDD5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top{
+  background-color: #215E55;
+  height: 50px;
+}
+
+textarea {
+  resize: none;
+  margin: 5px 10px 15px 10px;;
+  height: 140px;
+  border-radius: 5px;
+  outline: thin;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.upper-box{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+.lower-box{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+hr{
+  border-top: solid #bbb;
+  width: 95%;
+  border-radius: 5px;
+}
+
+.lowest{
+  width: 100%;
+  background-color: #215E55;
+  height: 3px;
+  margin-top: 5px;
+}
+
+.send-btn{
+  display: block;
+    width: 25%;
+    font-size: 17px;
+    padding: 5px;
+    margin: 35px auto;
+    background-color: #215E55;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.cancle-btn{
+  background-color: red;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 11px;
+    font-size: larger;
+    font-weight: bold;
+    margin: 10px 460px;
+    width: 21px;
+}
+
+#myfile{
+  margin-top: 30px;
+}
