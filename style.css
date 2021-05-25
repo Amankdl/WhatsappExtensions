@@ -22,7 +22,7 @@ body{
 .outer-box{
   min-width: 500px;
   width: 500px;
-  height: 600px;
+  height: 630px;
     top: 46%;
   border-style: solid;
     position: absolute;
@@ -77,7 +77,8 @@ hr{
   width: 100%;
   background-color: #215E55;
   height: 3px;
-  margin-top: 5px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .send-btn{
@@ -104,10 +105,50 @@ hr{
     width: 21px;
 }
 
-#myfile{
+.myfile{
   margin-top: 30px;
 }
 
 .mt-20{
   margin-top: 20px;
+}
+
+.radio-btn{
+  display: flex;
+  margin: 15px 10px 0px;
+}
+
+.file-box{
+  display: none;
+  width: 95%;
+  margin: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.radio-lbl{
+  margin: 0px 8px;
+}
+
+.caption{
+  margin: 10px 0px 0px;
+  width: 95%;
+  height: 80px !important;
+}
+
+#media-file{
+  margin: 18px 0px 0px;
+}
+
+.slct-file{
+  margin-top: 5px;
+}
+
+#seprator{
+  height: 35px;
+  width: 70px;
+  background-color: white;
+  padding: 8px;
+  margin: -9px 10px;
 }

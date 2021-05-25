@@ -56,16 +56,16 @@ function downloadAllContactsOfGroup() {
             tableData += "<tr><td>" + number + "</tr></td>"
         });
 
-        tableToExcel = (function () {
-            var uri = 'data:application/vnd.ms-excel;base64,'
-                , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + tableData + '</table></body></html>'
-                , base64 = function (s) {
+        tableToExcel = (function() {
+            var uri = 'data:application/vnd.ms-excel;base64,',
+                template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>' + tableData + '</table></body></html>',
+                base64 = function(s) {
                     return window.btoa(unescape(encodeURIComponent(s)))
+                },
+                format = function(s, c) {
+                    return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; })
                 }
-                , format = function (s, c) {
-                    return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; })
-                }
-            return function (table, name) {
+            return function(table, name) {
                 var ctx = { worksheet: 'Worksheet', table: "Contacts" }
                 window.location.href = uri + base64(format(template, ctx))
             }
@@ -78,33 +78,49 @@ function downloadAllContactsOfGroup() {
 
 
 var closeBtn;
+
 function loadingDiv() {
 
-    var strVar = "";
-    strVar += "    <div class=\"outer-box\">";
-    strVar += "      <div class=\"top\">";
-    strVar += "          <button class=\"cancle-btn\">x<\/button>";
-    strVar += "      <\/div>";
-    strVar += "      <div class=\"upper-box\">";
-    strVar += "         <textarea class=\"mt-20\" autofocus placeholder=\"Enter your message here\"><\/textarea>";
-    strVar += "      <\/div>";
-    strVar += "      <div class=\"upper-box\">";
-    strVar += "          <span class=\"heading\">";
-    strVar += "              <h4>Please enter your number<\/h4>";
-    strVar += "          <\/span>";
-    strVar += "         <textarea class=\"numbers-txtarea\" autofocus placeholder=\"Ex: +918696181616 +917023535423\"><\/textarea>";
-    strVar += "         <hr>";
-    strVar += "      <\/div>";
-    strVar += "      <div class=\"lower-box\">";
-    strVar += "        <span class=\"lower-box-span\">";
-    strVar += "            <h4 style=\"margin-top: 5px;\">OR Upload an excel sheet<\/h4>";
-    strVar += "            <input type=\"file\" id=\"myfile\" name=\"myfile\">";
-    strVar += "            <button class=\"send-btn\">Send<\/button>";
-    strVar += "        <\/span>";
-    strVar += "      <\/div>";
-    strVar += "      <div class=\"lowest\"><\/div>";
-    strVar += "    <\/div>";
-
+    var strVar="";
+strVar += "<div class=\"outer-box\">";
+strVar += "      <div class=\"top\">";
+strVar += "          <button class=\"cancle-btn\">x<\/button>";
+strVar += "      <\/div>";
+strVar += "      <div class=\"upper-box\">";
+strVar += "         <div id=\"radio-btn\" class=\"radio-btn\"> ";
+strVar += "         <input type=\"radio\" id=\"text\" name=\"msg-type\" value=\"text\" checked \"> ";
+strVar += "         <label for=\"text\" class=\"radio-lbl\">Text<\/label>";
+strVar += "         <input type=\"radio\" id=\"file\" name=\"msg-type\" value=\"file\" \">";
+strVar += "         <label for=\"file\" class=\"radio-lbl\">File<\/label><br> ";
+strVar += "         <\/div>";
+strVar += "         <textarea id=\"txt-msg\" class=\"mt-20\" autofocus placeholder=\"Enter your message here\"><\/textarea>";
+strVar += "         <span id=\"file-box\" class=\"file-box\">";
+strVar += "            <h4 style=\"margin-top: 5px\" class=\"slct-file\">Select your file<\/h4>";
+strVar += "            <input type=\"file\" id=\"media-file\" name=\"media-file\">";
+strVar += "            <textarea class=\"caption\" autofocus placeholder=\"Write caption here\"><\/textarea>";
+strVar += "        <\/span>";
+strVar += "      <\/div>";
+strVar += "      <div class=\"upper-box\">";
+strVar += "          <span class=\"heading\">";
+strVar += "              <h4>Please enter your number<\/h4>";
+strVar += "                <select name=\"cars\" id=\"seprator\">";
+strVar += "                <option value=\"comma\">Comma</option>";
+strVar += "                <option value=\"space\">Space</option>";
+strVar += "                <option value=\"seprator\" selected disabled>Seprator</option>";
+strVar += "                </select>";
+strVar += "          <\/span>";
+strVar += "         <textarea id=\"num-area\" type=\"number\" class=\"numbers-txtarea\" autofocus placeholder=\"Ex: +918696181616 +917023535423\"><\/textarea>";
+strVar += "         <hr>";
+strVar += "      <\/div>";
+strVar += "      <div class=\"lower-box\">";
+strVar += "        <span class=\"lower-box-span\">";
+strVar += "            <h4 style=\"margin-top: 5px\">OR Upload an excel sheet<\/h4>";
+strVar += "            <input type=\"file\" id=\"myfile\" class=\"myfile\" accept=\".csv\" name=\"myfile\">";
+strVar += "            <button id=\"send-btn\" class=\"send-btn\">Send<\/button>";
+strVar += "        <\/span>";
+strVar += "      <\/div>";
+strVar += "      <div class=\"lowest\"><\/div>";
+strVar += "    <\/div>";
 
     const loadingDiv = document.createElement("div");
     loadingDiv.innerHTML = strVar;
@@ -113,6 +129,10 @@ function loadingDiv() {
 
     closeBtn = document.querySelector(".cancle-btn");
     closeBtn.addEventListener("click", cancelClose, false);
+    document.getElementById("file").addEventListener("click", onFileMsgSelect, false);
+    document.getElementById("text").addEventListener("click", onTextMsgSelect, false);
+    document.getElementById("send-btn").addEventListener("click", sendMessage, false);
+    document.getElementById("myfile").addEventListener("change", loadContactCsv, false);
 }
 
 function cancelClose() {
@@ -120,3 +140,60 @@ function cancelClose() {
     loadingDiv.remove();
 }
 
+function onTextMsgSelect(){ 
+    document.getElementById("file-box").style.display = "none";
+    document.getElementById("txt-msg").style.display = "inline-block";    
+}
+
+function onFileMsgSelect(){    
+    document.getElementById("txt-msg").style.display = "none";
+    document.getElementById("file-box").style.display = "flex";
+}
+
+var contactsArray;
+function sendMessage(){
+     //check whether it is a text message or file message
+      //if text message than our code will be as follows
+      var message = document.getElementById("txt-msg").value;
+      var numbersInTextArea = (document.getElementById("num-area").value).trim();
+      var msgType = document.querySelector('input[name="msg-type"]:checked').value;
+      var seprator = document.getElementById("seprator").value;
+      contactsArray = seprator == "space" ? numbersInTextArea.split(" ") : (numbersInTextArea.match(/\n/g)||[]).length > 0 ?numbersInTextArea.split("\n") : numbersInTextArea.split(",");
+      console.log(contactsArray);  
+      if(msgType == "text"){
+        contactsArray.forEach(()=>{
+
+        });
+      }else{
+
+      }
+}
+
+
+function loadContactCsv() {
+    console.log("working");
+    var files = document.getElementById("myfile").files;
+    // Check for the various File API support, this for csv fole
+    if (window.FileReader) {
+        // FileReader are supported.
+        getAsText(files[0]);
+    } else {
+        alert('FileReader are not supported in this browser.');
+    }
+}
+
+function getAsText(fileToRead) {
+    var reader = new FileReader();
+    // Read file into memory as UTF-8      
+    reader.readAsText(fileToRead);
+    // Handle errors load
+    reader.onload = loadHandler;
+    //reader.onerror = errorHandler;
+}
+
+function loadHandler(event) {
+    var csv = event.target.result;
+    //processData(csv);
+    csv.replace(";", ",");
+    document.getElementById("num-area").value = csv;
+}
