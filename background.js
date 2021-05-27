@@ -5,7 +5,7 @@ chrome.webNavigation.onCompleted.addListener(tab => {
         console.log("Page loaded!");
         chrome.tabs.executeScript(null,{file: "./foreground.js"},()=>{});
     });
-}); */
+});*/
 
 
 /*console.log("Background script running.");

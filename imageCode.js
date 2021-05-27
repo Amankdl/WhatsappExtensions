@@ -1,10 +1,11 @@
-/*const timer = setInterval(general, 1e3);
+const timer = setInterval(general, 1e3);
 
 function general() {
     console.log("Script running");
     (getBySelector("div.app") || getBySelector("div.two") || getBySelector("div.three") || getBySelector("div.pane-side")) && (loadModule(), clearInterval(timer))
 }
 
+var webpackChunkbuild = [];
 function loadModule() {
     if (!window.Store || !window.Store.Msg) {
         (function() {
@@ -116,7 +117,7 @@ window.sendImage = ((e, t, n, l) => window.Store.Chat.find(e).then(e => {
             caption: n
         }), void 0 !== l && l(!0)
     })
-}))*/
+}))
 
 //var main_timer
 

@@ -141,17 +141,15 @@ function loadingDiv() {
     document.getElementById("myfile").addEventListener("change", loadContactCsv, false);    
 }
 
-function loadjs() {
+/*function loadjs() {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "https://cdn.jsdelivr.net/gh/amankdl/mycdn/imageCode.js";
+    script.src = "https://cdn.jsdelivr.net/gh/amankdl/mycdn/try1.js";
     script.onload = function(){
-        alert("Script is ready!");
+
     };
     document.body.appendChild(script);
- }
-
- loadjs();
+ }*/
 
 function cancelClose() {
     const loadingDiv = document.getElementById("loadingDiv");
