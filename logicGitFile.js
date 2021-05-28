@@ -1,12 +1,12 @@
 setTimeout(() => {
     var buttonsGroup = document.getElementsByClassName("_1ljzS pnYZD")[0];
-    var div = document.createElement("div");
-    div.classList = "_2n-zq";
-    div.id = "upload-all-contacts";
-    div.addEventListener("click", openBulkSenderPopup, false)
-    var button = `<div aria-disabled="false" role="button" tabindex="0" class="_1XaX-" data-tab="9" title="Download All Contacts" aria-label="Download All Contacts"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill="currentColor" d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path></svg></span></div><span></span>`;
-    div.innerHTML = button;
-    buttonsGroup.insertBefore(div, buttonsGroup.children[0]);
+    var bulkSend = document.createElement("div");
+    bulkSend.classList = "_2n-zq";
+    bulkSend.id = "upload-all-contacts";
+    bulkSend.addEventListener("click", openBulkSenderPopup, false)
+    var bulkSendSvg = `<div aria-disabled="false" role="button" tabindex="0" class="_1XaX-" data-tab="9" title="Download All Contacts" aria-label="Download All Contacts"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill="currentColor" d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path></svg></span></div><span></span>`;
+    bulkSend.innerHTML = bulkSendSvg;
+    buttonsGroup.insertBefore(bulkSend, buttonsGroup.children[0]);
     document.getElementsByClassName("JnmQF _3QmOg")[0].addEventListener('click', isGroupOrIndividual, false);
 }, 25000);
 
@@ -138,7 +138,7 @@ function loadingDiv() {
     document.getElementById("file").addEventListener("click", onFileMsgSelect, false);
     document.getElementById("text").addEventListener("click", onTextMsgSelect, false);
     sendBtn.addEventListener("click", sendMessage1, false);
-    document.getElementById("myfile").addEventListener("change", loadContactCsv, false);    
+    document.getElementById("myfile").addEventListener("change", loadContactCsv, false);
 }
 
 /*function loadjs() {
@@ -172,19 +172,19 @@ function sendMessage1() {
 
 var count = 0;
 function grabNumber() {
-    if (contactsArray.length-1 >= count) {
+    if (contactsArray.length - 1 >= count) {
         setTimeout(() => {
             console.log(contactsArray[count], " => ", count);
             let num = contactsArray[count].replace(/^\D+/g, '');
-            if (msgType == "text") {                
+            if (msgType == "text") {
                 smP(num, msg);
-            }else{
-                window.sendImage(num+"@c.us",mediaFile,caption);
+            } else {
+                window.sendImage(num + "@c.us", mediaFile, caption);
             }
             ++count;
             grabNumber();
         }, 1000)
-    }else{
+    } else {
         count = 0;
         sendBtn.style.display = "block";
         spinner.style.display = "none";
@@ -203,14 +203,14 @@ const sendMessage = () => {
     console.log(contactsArray);
     sendBtn.style.display = "none";
     spinner = document.getElementById('spinner');
-    spinner.style.display = "block";  
+    spinner.style.display = "block";
     if (msgType == "text") {
         msg = encodeURIComponent(document.getElementById("txt-msg").value);
-    }else{
+    } else {
         mediaFile = document.getElementById("media-file").files[0]
         caption = document.getElementById("caption").value;
-    } 
-    grabNumber();    
+    }
+    grabNumber();
 }
 
 async function smP(nm, sm) {
@@ -299,7 +299,7 @@ function general() {
 
 function loadModule() {
     if (!window.Store || !window.Store.Msg) {
-        (function() {
+        (function () {
             function getStore(modules) {
                 let foundCount = 0;
                 let neededObjects = [
@@ -373,7 +373,7 @@ function loadModule() {
                         window.Store[needObj.id] = needObj.foundedModule;
                     }
                 });
-                window.Store.Chat.modelClass.prototype.sendMessage = function(e) {
+                window.Store.Chat.modelClass.prototype.sendMessage = function (e) {
                     window.Store.SendTextMsgToChat(this, ...arguments);
                 }
                 return window.Store;
@@ -384,7 +384,7 @@ function loadModule() {
             }, [parasite]);
             else webpackChunkbuild.push([
                 [parasite], {},
-                function(o, e, t) {
+                function (o, e, t) {
                     let modules = [];
                     for (let idx in o.m) { modules.push(o(idx)); }
                     getStore(modules);
@@ -410,11 +410,5 @@ window.sendImage = ((e, t, n, l) => window.Store.Chat.find(e).then(e => {
     })
 }))
 
-//var main_timer
+//----------------------------
 
-/*
-e = "918696181616@c.us"
-t = document.getElementById("getImgs").files[0]
-n = "Hello"*/
-
-//window.sendImage("918696181616@c.us", document.getElementById("media-file").files[0])

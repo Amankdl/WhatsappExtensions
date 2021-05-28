@@ -12,14 +12,21 @@
             "matches":[
                 "https://web.whatsapp.com/"
             ],
-             "js": ["redirectFile.js"],
+             "js": ["redirectFile.js","setting.js"],
              "css": ["./style.css"]
         }
     ],
     "permissions": [
-        "<all_urls>"      
+        "<all_urls>" 
     ],
     "background": {
         "scripts": ["background.js"]
-    }
+    },
+    "web_accessible_resources":[
+        "settings/lst-msg.css",
+        "settings/name-number.css",
+        "settings/profile-pic.css",
+        "settings/conversation.css",
+        "logicGitFile.js"
+    ]
 }
