@@ -28,3 +28,10 @@ chrome.tabs.onActivated.addListener(tab => {
         //}
     });
 }); */
+
+
+chrome.runtime.onMessage.addListener((req,res,sendResp) => {
+    console.log(req.message);
+    sendResp("Sending response from background.js");
+    chrome.tabs.sendMessage(res.tab.id ,req);
+});

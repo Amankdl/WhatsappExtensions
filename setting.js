@@ -1,5 +1,5 @@
 setTimeout(() => {
-    var buttonsGroup = document.getElementsByClassName("_1ljzS pnYZD")[0];
+    var buttonsGroup = document.getElementsByClassName("_1ljzS pnYZD")[0].children[0];
     var settings = document.createElement("div");
     settings.classList = "_2n-zq";
     settings.id = "settings";
@@ -36,7 +36,21 @@ function openSettingsDiv() {
     settingTpl += "        <div class=\"top h-30\">";
     settingTpl += "          <button id=\"settings-cancle-btn\" class=\"cancle-btn settings-cancle-btn\">x<\/button>";
     settingTpl += "        <\/div>";
-    settingTpl += "        <div>";
+    settingTpl += "        <div class=\"settings-ul-div\">";
+    settingTpl += "        <ul class=\"settings-ul mt-15\">";
+    settingTpl += "            <li><input type=\"checkbox\" id=\"lst-msg\" name=\"lst-msg\" value=\"lst-msg\">";
+    settingTpl += "                <label>Blur last message.<\/label>";
+    settingTpl += "            <\/li>";
+    settingTpl += "            <li><input type=\"checkbox\" id=\"profile-pic\" name=\"profile-pic\" value=\"profile-pic\">";
+    settingTpl += "                <label>Blur profile picture. <\/label>";
+    settingTpl += "            <\/li>";
+    settingTpl += "            <li><input type=\"checkbox\" id=\"name-number\" name=\"name-number\" value=\"name-number\">";
+    settingTpl += "                <label for=\"\">Blur name\/number<\/label>";
+    settingTpl += "            <\/li>";
+    settingTpl += "            <li><input type=\"checkbox\" id=\"conversation\" name=\"conversation\" value=\"conversation\">";
+    settingTpl += "                <label for=\"\">Blur conversation<\/label>";
+    settingTpl += "            <\/li>";
+    settingTpl += "        <\/ul>";
     settingTpl += "        <ul class=\"settings-ul mt-15\">";
     settingTpl += "            <li><input type=\"checkbox\" id=\"lst-msg\" name=\"lst-msg\" value=\"lst-msg\">";
     settingTpl += "                <label>Blur last message.<\/label>";
@@ -52,6 +66,7 @@ function openSettingsDiv() {
     settingTpl += "            <\/li>";
     settingTpl += "        <\/ul>";
     settingTpl += "        </div>";
+    settingTpl += "        <button id=\"demo-btn\">Click</button>";
     settingTpl += "        <hr class=\"horizontal-line hr-bottom\"/>";
 
     const loadingSettingsDiv = document.createElement("div");
@@ -72,6 +87,9 @@ function openSettingsDiv() {
     conversation.checked = isConversationChecked;
 
     document.getElementById("settings-cancle-btn").addEventListener('click', closeSettingPopup, false);
+    document.getElementById("demo-btn").addEventListener('click', ()=>{
+        window.WAPI.setPresence(false);
+    }, false);
 
     lastMsg.addEventListener('change', (e) => {
         sessionStorage.setItem("lst-msg", e.target.checked);
