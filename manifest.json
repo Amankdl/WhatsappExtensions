@@ -12,7 +12,7 @@
             "matches":[
                 "https://web.whatsapp.com/"
             ],
-             "js": ["redirectFile.js","setting.js"],
+             "js": ["redirectFile.js", "setting.js"],
              "css": ["./style.css"]
         }
     ],

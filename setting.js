@@ -1,4 +1,12 @@
-setTimeout(() => {
+const isClassFound = setInterval(()=>{
+    var sidePaneHeader = document.getElementsByClassName("_1ljzS pnYZD");
+    if(sidePaneHeader.length){
+      clearInterval(isClassFound);
+      loadSettingButton();
+    }
+ },1e3);
+
+ function loadSettingButton(){
     var buttonsGroup = document.getElementsByClassName("_1ljzS pnYZD")[0].children[0];
     var settings = document.createElement("div");
     settings.classList = "_2n-zq";
@@ -8,7 +16,7 @@ setTimeout(() => {
     settings.innerHTML = settingsSvg;
     buttonsGroup.insertBefore(settings, buttonsGroup.children[0]);
     checkSettings();
-}, 25000);
+}
 
 var isLastMsgChecked;
 var isProfilePicChecked;

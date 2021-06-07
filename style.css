@@ -160,13 +160,13 @@ hr{
   border-top: 16px solid #215E55;
   border-bottom: 16px solid #215E55;
   width: 25px;
-    border-width: 5px;
-    height: 25px;
-    position: absolute;
-    left: 45%;
-    bottom: 5%;
-    border-color: rgb(33, 94, 85) rgb(33, 94, 85) transparent;
-    animation: 1s linear 0s infinite normal none running spin !important;
+  border-width: 5px;
+  height: 25px;
+  position: absolute;
+  left: 45%;
+  bottom: 5%;
+  border-color: rgb(33, 94, 85) rgb(33, 94, 85) transparent;
+  animation: 1s linear 0s infinite normal none running spin !important;
 }
 
 @-webkit-keyframes spin {
@@ -257,9 +257,87 @@ hr{
 
 .settings-ul-div{
   display: flex;
-
 }
 
 .downloadSavedContactsSpan{
   margin: 10px 10px 14px 0px;
+}
+
+#exportContacts{
+  color: #919191;
+  margin: 10px 10px 0px 0px;
+}
+
+.bulk-send-svg{
+  margin: 4px -7px 0px 0px;
+}
+
+.bulk-add-svg{
+  width: 25px;
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.createGroupPopup{
+  top: 46%;
+  border-style: solid;
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -300px;
+  z-index: 100;
+  text-align: center;
+  box-shadow: 5px 5px 20px #181818;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  min-width: 320px;
+  padding: 20px;
+  height: 435px;
+  align-items: flex-start;
+  background-color: #E5DDD5;
+}
+
+#contactsSavedInPhone{
+  margin: 15px auto;
+  width: 93%;
+}
+
+.mt-15{
+  margin-top: 15px;
+}
+
+.create-grp-btn{
+  width: 30%;
+  background-color: #215E55;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+.create-grp-cancle-btn{
+  position: absolute;
+  left: -129px;
+  color: black;
+  top: 2px;
+  background-color: red;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 11px;
+  font-size: larger;
+  font-weight: bold;
+  margin: 10px 460px;
+  width: 21px;
+}
+
+.mt-25{
+  margin-top: 25px;
+}
+
+.grp-name{
+  height: 20px;
+  width: 93%;
+  margin: 25px auto 0px;
 }
