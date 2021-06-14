@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="outer-box-group-create">
-        <h4>Enter contacts saved in your device.</h4>
-        <textarea class="mt-15" name="contactsSavedInPhone" id="contactsSavedInPhone"></textarea>
-        <input class="mt-15" type="file" name="savedContactsCsv" id="savedContactsCsv">
-        <button class="mt-15 create-grp-btn">Create</button>
+    <div class="import-grp-member-box" id="import-grp-member-box">
+        <textarea class="mt-15" name="import-grp-member-textbox" id="import-grp-member-textbox"></textarea>
+        <p><b>OR</b> select CSV file</p>
+        <input class="mt-15" type="file" name="import-grp-member-input" id="import-grp-member-input">
+        <div>
+            <button class="mt-15 create-grp-btn">Import</button>
+            <button class="mt-15 create-grp-btn">Cancle</button>
+        </div>        
     </div>
 </body>
 </html>

@@ -188,6 +188,15 @@ hr{
   margin: -10px;
 }
 
+.m-ten{
+  margin: 10px;
+}
+
+
+.mt-10{
+  margin-top: 10px;
+}
+
 .mt-15{
   margin-top: -15px;
 }
@@ -269,7 +278,7 @@ hr{
 }
 
 .bulk-send-svg{
-  margin: 4px -7px 0px 0px;
+  margin: 5px 0px 0px;
 }
 
 .bulk-add-svg{
@@ -313,7 +322,6 @@ hr{
   background-color: #215E55;
   color: white;
   padding: 10px;
-  margin: auto;
 }
 
 .create-grp-cancle-btn{
@@ -340,4 +348,91 @@ hr{
   height: 20px;
   width: 93%;
   margin: 25px auto 0px;
+}
+
+.group-confirm-outer{
+  background-color: #E5DDD5;
+  width: 35%;
+  padding: 5px 20px;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  right: 30%;
+  height: 150px;
+  z-index: 100;
+  box-shadow: 5px 5px 20px #181818;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grp-name-input{
+  width: 98%;
+  height: 25px;
+}
+
+.grp-save-cancle-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.confirm-btn{
+  padding: 5px;
+  margin-right: 5px;
+}
+
+#create-grp-cancle-btn{
+  margin-right: 5px;
+}
+
+.blur{
+  filter: blur(5px);
+}
+
+.grp-save-cancle-btn button{
+  background-color: #399689;
+  color: white;
+  padding: 10px;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.import-grp-member-box{
+  min-width: 400px;
+  max-width: 400px;
+    height: 370px;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  box-shadow: 5px 5px 20px #181818;
+  z-index: 100;
+  background-color: #E5DDD5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#import-grp-member-textbox{
+  height: 170px;
+}
+
+.btn-grp-div{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+
+.h-400{
+  height: 400px !important;
+}
+
+#limitExceedMsg{
+  color: #F45524;
+  font-size: 15px;
+  line-height: 1.1em;
 }
