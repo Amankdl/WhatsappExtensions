@@ -202,8 +202,8 @@ hr{
 }
 
 #loadingSettingsDiv{
-  height: 200px;
-    width: 460px;
+  height: 240px;
+    width: 240px;
     top: 46%;
   border-style: solid;
     position: absolute;
@@ -247,7 +247,7 @@ hr{
 
 .settings-cancle-btn{
   position: absolute;
-  left: -30px;
+  left: -245px;
   top: -5px;
 }
 
@@ -435,4 +435,10 @@ hr{
   color: #F45524;
   font-size: 15px;
   line-height: 1.1em;
+}
+
+.no-msg-error{
+  margin-top: -19px;
+  color: red;
+  font-size: 14px;
 }

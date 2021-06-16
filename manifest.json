@@ -19,14 +19,11 @@
     "permissions": [
         "<all_urls>" 
     ],
-    "background": {
-        "scripts": ["background.js"]
-    },
     "web_accessible_resources":[
         "settings/lst-msg.css",
         "settings/name-number.css",
         "settings/profile-pic.css",
         "settings/conversation.css",
-        "logicGitFile.js"
+        "gitLogic.js"
     ]
 }
